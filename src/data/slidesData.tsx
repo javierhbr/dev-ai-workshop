@@ -3,7 +3,8 @@ import { Slide } from '../types';
 import { HierarchyLayers, LoadingOrder, FolderAnatomy, WindsurfHierarchy } from '../components/graphics/HierarchyGraphics';
 import { InteractiveQuestion } from '../components/InteractiveQuestion';
 import { QuizQuestion } from '../components/QuizQuestion';
-import { Zap, LayoutGrid } from 'lucide-react';
+import { Zap, LayoutGrid, HelpCircle } from 'lucide-react';
+import { level1QuizQuestions } from './quizData';
 
 const level1Slides: Omit<Slide, 'workshopId'>[] = [
   {
@@ -264,6 +265,18 @@ If you're going to touch multiple files → **Claude Code** or **Windsurf**, nev
   },
   {
     id: 8,
+    section: 'Quiz',
+    title: level1QuizQuestions[4].title,
+    content: (
+      <QuizQuestion 
+        question={level1QuizQuestions[4].question}
+        stars={level1QuizQuestions[4].stars}
+        options={level1QuizQuestions[4].options}
+      />
+    ),
+  },
+  {
+    id: 9,
     section: 'Theory',
     title: 'The problem: AI amnesia',
     content: (
@@ -288,7 +301,7 @@ If you're going to touch multiple files → **Claude Code** or **Windsurf**, nev
     ),
   },
   {
-    id: 9,
+    id: 10,
     section: 'Theory',
     title: 'The solution: rules files',
     resourceId: 'rules-intro',
@@ -325,7 +338,7 @@ Teach them that modern AI tools **are not memoryless chats**. You can and should
     ),
   },
   {
-    id: 10,
+    id: 11,
     section: 'Theory',
     title: 'Anatomy of a rules file',
     facilitatorNotes: `### The 80/20 rule
@@ -383,7 +396,19 @@ The remaining 20% comes from modular skills for specific cases. Don't obsess ove
     ),
   },
   {
-    id: 11,
+    id: 12,
+    section: 'Quiz',
+    title: level1QuizQuestions[7].title,
+    content: (
+      <QuizQuestion 
+        question={level1QuizQuestions[7].question}
+        stars={level1QuizQuestions[7].stars}
+        options={level1QuizQuestions[7].options}
+      />
+    ),
+  },
+  {
+    id: 13,
     section: 'Demo',
     title: 'Demo: same prompt, two results',
     content: (
@@ -409,7 +434,7 @@ The remaining 20% comes from modular skills for specific cases. Don't obsess ove
     ),
   },
   {
-    id: 12,
+    id: 14,
     section: 'Theory',
     title: 'Skills (quick concept)',
     resourceId: 'reusable-skills',
@@ -444,7 +469,7 @@ The remaining 20% comes from modular skills for specific cases. Don't obsess ove
     ),
   },
   {
-    id: 13,
+    id: 15,
     section: 'Theory',
     title: 'Context Hierarchy: The 3 Layers',
     resourceId: 'context-hierarchy',
@@ -459,7 +484,7 @@ The remaining 20% comes from modular skills for specific cases. Don't obsess ove
     ),
   },
   {
-    id: 14,
+    id: 16,
     section: 'Theory',
     title: 'Specificity Wins',
     content: (
@@ -471,7 +496,7 @@ The remaining 20% comes from modular skills for specific cases. Don't obsess ove
     ),
   },
   {
-    id: 15,
+    id: 17,
     section: 'Theory',
     title: 'Anatomy of the .claude/ folder',
     content: (
@@ -482,7 +507,7 @@ The remaining 20% comes from modular skills for specific cases. Don't obsess ove
     ),
   },
   {
-    id: 16,
+    id: 18,
     section: 'Theory',
     title: 'Windsurf Context Hierarchy',
     resourceId: 'windsurf-context-hierarchy',
@@ -497,7 +522,7 @@ The remaining 20% comes from modular skills for specific cases. Don't obsess ove
     ),
   },
   {
-    id: 17,
+    id: 19,
     section: 'Theory',
     title: 'Windsurf Trigger Modes',
     content: (
@@ -529,7 +554,7 @@ The remaining 20% comes from modular skills for specific cases. Don't obsess ove
     ),
   },
   {
-    id: 18,
+    id: 20,
     section: 'Theory',
     title: 'The Character Budget Reality',
     content: (
@@ -561,7 +586,19 @@ The remaining 20% comes from modular skills for specific cases. Don't obsess ove
     ),
   },
   {
-    id: 19,
+    id: 21,
+    section: 'Quiz',
+    title: level1QuizQuestions[1].title,
+    content: (
+      <QuizQuestion 
+        question={level1QuizQuestions[1].question}
+        stars={level1QuizQuestions[1].stars}
+        options={level1QuizQuestions[1].options}
+      />
+    ),
+  },
+  {
+    id: 22,
     section: 'Theory',
     title: 'CIVR framework',
     resourceId: 'handout-1',
@@ -606,7 +643,19 @@ Write it on the whiteboard or project it. It's the simplified version of the con
     ),
   },
   {
-    id: 20,
+    id: 23,
+    section: 'Quiz',
+    title: level1QuizQuestions[2].title,
+    content: (
+      <QuizQuestion 
+        question={level1QuizQuestions[2].question}
+        stars={level1QuizQuestions[2].stars}
+        options={level1QuizQuestions[2].options}
+      />
+    ),
+  },
+  {
+    id: 24,
     section: 'Hands-on',
     title: '🛠️ Exercise 1: Debugging',
     resourceId: 'exercise-1',
@@ -643,7 +692,7 @@ Each pair opens \`exercises/01-async-debugging.md\` and reads only the "Your tas
     ),
   },
   {
-    id: 21,
+    id: 25,
     section: 'Hands-on',
     title: 'Debrief Exercise 1',
     content: (
@@ -668,7 +717,7 @@ Each pair opens \`exercises/01-async-debugging.md\` and reads only the "Your tas
     ),
   },
   {
-    id: 22,
+    id: 26,
     section: 'Theory',
     title: 'Iterative 3-step flow',
     facilitatorNotes: `### Introduce the flow (3 min)
@@ -700,7 +749,19 @@ Each pair opens \`exercises/01-async-debugging.md\` and reads only the "Your tas
     ),
   },
   {
-    id: 23,
+    id: 27,
+    section: 'Quiz',
+    title: level1QuizQuestions[0].title,
+    content: (
+      <QuizQuestion 
+        question={level1QuizQuestions[0].question}
+        stars={level1QuizQuestions[0].stars}
+        options={level1QuizQuestions[0].options}
+      />
+    ),
+  },
+  {
+    id: 28,
     section: 'Hands-on',
     title: '🛠️ Exercise 2: Feature + tests',
     resourceId: 'exercise-2',
@@ -738,7 +799,7 @@ Practice an **iterative 3-step flow** instead of asking for everything at once.
     ),
   },
   {
-    id: 24,
+    id: 29,
     section: 'Hands-on',
     title: 'Debrief Exercise 2',
     content: (
@@ -763,7 +824,19 @@ Practice an **iterative 3-step flow** instead of asking for everything at once.
     ),
   },
   {
-    id: 25,
+    id: 30,
+    section: 'Quiz',
+    title: level1QuizQuestions[6].title,
+    content: (
+      <QuizQuestion 
+        question={level1QuizQuestions[6].question}
+        stars={level1QuizQuestions[6].stars}
+        options={level1QuizQuestions[6].options}
+      />
+    ),
+  },
+  {
+    id: 31,
     section: 'Theory',
     title: 'The most underrated use case',
     content: (
@@ -798,7 +871,19 @@ Practice an **iterative 3-step flow** instead of asking for everything at once.
     ),
   },
   {
-    id: 26,
+    id: 32,
+    section: 'Quiz',
+    title: level1QuizQuestions[5].title,
+    content: (
+      <QuizQuestion 
+        question={level1QuizQuestions[5].question}
+        stars={level1QuizQuestions[5].stars}
+        options={level1QuizQuestions[5].options}
+      />
+    ),
+  },
+  {
+    id: 33,
     section: 'Hands-on',
     title: '🛠️ Exercise 3: Understand unfamiliar code',
     resourceId: 'exercise-3',
@@ -829,7 +914,7 @@ Show them **the most underrated use case**: using AI as an onboarding tutor when
     ),
   },
   {
-    id: 27,
+    id: 34,
     section: 'Theory',
     title: 'Anti-patterns (what NOT to do)',
     resourceId: 'handout-3',
@@ -871,7 +956,7 @@ Project this list. Discuss why each one is dangerous for junior developers.`,
     ),
   },
   {
-    id: 28,
+    id: 35,
     section: 'Theory',
     title: 'The master rule',
     facilitatorNotes: `### Final golden rule
@@ -893,160 +978,19 @@ This is critical for juniors. The AI can produce code that looks right, compiles
     ),
   },
   {
-    id: 29,
-    section: 'Quiz',
-    title: 'Part 1 — Daily prompting & workflow',
-    content: (
-      <div className="flex flex-col items-center justify-center h-full text-center space-y-8">
-        <div className="bg-indigo-600 p-6 rounded-3xl text-white shadow-2xl mb-4">
-          <LayoutGrid size={64} />
-        </div>
-        <h1 className="text-6xl font-black text-gray-900 tracking-tight">Knowledge Check</h1>
-        <p className="text-2xl text-gray-500 font-medium">Part 1 — Daily prompting & workflow</p>
-        <div className="bg-indigo-50 px-6 py-3 rounded-full text-indigo-600 font-bold text-xl">
-          8 Questions
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 30,
-    section: 'Quiz',
-    title: 'Q1 — The vague refactor request',
-    content: (
-      <QuizQuestion 
-        question="You're about to ask Claude Code to 'refactor the auth module to be cleaner.' Which of these is the most useful first step?"
-        stars={2}
-        options={[
-          { id: 'A', text: 'Send the prompt as-is and review the diff afterward', isCorrect: false, explanation: 'Reviewing afterward is too late. By the time you have a diff, the AI has already made dozens of decisions you\'d have pushed back on. Frontload the discipline.' },
-          { id: 'B', text: 'Add "follow best practices" to the prompt', isCorrect: false, explanation: '"Best practices" is the canonical empty phrase. The AI can\'t act on it; it just lets the AI pick whatever it pattern-matched on most recently. You\'re not steering, you\'re praying.' },
-          { id: 'C', text: 'Specify the concrete target state (file structure, what should move where) and the constraints (what cannot change)', isCorrect: false, explanation: 'C is better than A or B, but it skips the step where you verify the AI understands the current code. You might specify a target that doesn\'t make sense given what\'s actually there. Always validate the model\'s mental model of the current state before locking in a target.' },
-          { id: 'D', text: 'Ask Claude Code to first analyze the current auth module and propose a refactor plan, before any changes', isCorrect: true, explanation: '"Cleaner" is not executable. Before any changes, you need (a) a shared understanding of the current state, and (b) a plan you can review. D gets both for free, and it doesn\'t commit you to a specific target state until you\'ve seen what the AI thinks the current code is. If its understanding of the current state is wrong, you find out before any files get touched.' }
-        ]}
-      />
-    ),
-  },
-  {
-    id: 31,
-    section: 'Quiz',
-    title: 'Q2 — Tab completion is suggesting nonsense',
-    content: (
-      <QuizQuestion 
-        question="You're typing in your editor with Copilot enabled. The completions it's suggesting reference functions that don't exist in your codebase. What's the most likely cause?"
-        stars={2}
-        options={[
-          { id: 'A', text: 'Copilot is broken; restart your editor', isCorrect: false, explanation: 'Restarting fixes nothing here. The "problem" is correct behavior given a context-poor situation.' },
-          { id: 'B', text: 'Your file lacks enough context for Copilot to ground its suggestions — open the relevant files in adjacent tabs', isCorrect: true, explanation: 'Inline completion tools like Copilot use the surrounding context — current file, open tabs, recently edited files — as their grounding. If you\'re working in a fresh file with no related tabs open, the AI has nothing to ground on and will invent plausible-looking nonsense based on its training data. Opening 2-3 related files in adjacent tabs immediately improves suggestion quality.' },
-          { id: 'C', text: 'Copilot needs a longer prompt; write a comment describing what you want', isCorrect: false, explanation: 'A comment can help, but only if the surrounding context is also good. A comment in a fresh file with no other tabs still produces hallucinations.' },
-          { id: 'D', text: 'The model has hallucinated; switch to a different AI tool', isCorrect: false, explanation: 'Tool-switching is a non-fix. Every inline completion tool has the same dependency on surrounding context. You\'ll get the same nonsense from Cursor, Windsurf, or any other tool in the same situation.' }
-        ]}
-      />
-    ),
-  },
-  {
-    id: 32,
-    section: 'Quiz',
-    title: 'Q3 — The AI just renamed a bunch of things',
-    content: (
-      <QuizQuestion 
-        question="You asked Claude Code to add a new endpoint. It did, but the diff also includes 12 renamed variables in unrelated files because 'they were inconsistent with the new naming convention.' What do you do?"
-        stars={3}
-        options={[
-          { id: 'A', text: 'Accept the diff — the renames are improvements', isCorrect: false, explanation: 'Even if the renames are good, they don\'t belong in this PR. PR review breaks down when changes mix concerns. Your reviewer also can\'t tell which changes were intended and which were the AI being "helpful."' },
-          { id: 'B', text: 'Reject the entire diff; the AI broke scope', isCorrect: true, explanation: 'Scope discipline matters more than any individual "improvement." If you accept scope creep once, you\'ve trained yourself to accept it always, and your AI sessions will routinely produce sprawling diffs that are impossible to review. The right move is to reject everything, then re-prompt with explicit scope boundaries: "add the endpoint. Do not modify any other files. Do not rename anything."' },
-          { id: 'C', text: 'Accept the new endpoint changes but reject the renames', isCorrect: false, explanation: 'Manually splitting a diff is slow and error-prone. You\'ll miss something. The renames also might depend on each other or on the new endpoint code in ways you don\'t notice. Reject and redo cleanly.' },
-          { id: 'D', text: 'Accept everything but ask the AI to explain why each rename was needed', isCorrect: false, explanation: 'You\'re asking the AI to justify decisions you didn\'t authorize. The AI will produce confident justifications for anything. The justifications don\'t make the scope creep okay.' }
-        ]}
-      />
-    ),
-  },
-  {
-    id: 33,
-    section: 'Quiz',
-    title: 'Q4 — The AI is faster than you',
-    content: (
-      <QuizQuestion 
-        question="You're a senior dev and you've noticed Claude Code can write working code faster than you can think through it. You're getting in the habit of just accepting suggestions and moving on. What's the risk?"
-        stars={3}
-        options={[
-          { id: 'A', text: 'No risk — speed is the whole point', isCorrect: false, explanation: 'Speed without verification is just shipping bugs faster. The whole point of the verification toolkit handout is that "the AI is fast" makes verification more important, not less.' },
-          { id: 'B', text: 'You\'ll lose your debugging skills over time', isCorrect: false, explanation: 'Skill atrophy is real but slow — it takes years to matter. The AI bugs will burn you next week.' },
-          { id: 'C', text: 'The AI\'s bugs cluster differently from human bugs; your normal review instincts won\'t catch them', isCorrect: true, explanation: 'Human bugs cluster around tired-engineer mistakes (off-by-one, copy-paste errors, forgetting null checks). AI bugs cluster around different things (subtle floating-point issues, concurrency races, async/await traps, hallucinated APIs that "look real," tests that test the wrong thing). Your instincts as a reviewer were trained on human bugs. AI-generated code routes around those instincts, and you\'ll wave through bugs you\'d have caught in a teammate\'s PR.' },
-          { id: 'D', text: 'Your team will resent you for shipping faster', isCorrect: false, explanation: 'Probably true, but it\'s a social issue, not a technical one, and it\'s not the failure mode the question is about.' }
-        ]}
-      />
-    ),
-  },
-  {
-    id: 34,
-    section: 'Quiz',
-    title: 'Q5 — Choosing which tool for which task',
-    content: (
-      <QuizQuestion 
-        question="You have GitHub Copilot, Claude Code, and Windsurf all available. For which task is Claude Code (CLI agent) the best fit?"
-        stars={2}
-        options={[
-          { id: 'A', text: 'Adding a missing semicolon', isCorrect: false, explanation: 'Trivial fixes don\'t need any AI. Just type the semicolon. Reaching for an AI tool for one-character edits is the senior version of "use a chainsaw to peel an apple."' },
-          { id: 'B', text: 'Renaming a variable consistently in one file', isCorrect: false, explanation: 'Single-file refactors are better handled by your editor\'s built-in refactor (F2 rename in VS Code) or by an inline tool. Agents are slower for tasks where the human knows exactly what to do.' },
-          { id: 'C', text: 'Refactoring code across 8 files in a service', isCorrect: true, explanation: 'Multi-file agentic refactors are exactly what CLI agents like Claude Code are built for. They can read, plan, edit, and verify across files with minimal human steering between steps. This is the workflow plan mode and checkpoints exist for.' },
-          { id: 'D', text: 'Generating boilerplate for a new React component you\'re typing out', isCorrect: false, explanation: 'Inline completion tools like Copilot are better at "I\'m typing right now, finish my thought" tasks. Spinning up an agent for a single React component is overkill — you\'d type it faster with tab completion.' }
-        ]}
-      />
-    ),
-  },
-  {
-    id: 35,
-    section: 'Quiz',
-    title: 'Q6 — The "explain this code" trap',
-    content: (
-      <QuizQuestion 
-        question="You inherit a confusing 300-line function. You ask Claude Code: 'Explain what this function does.' It produces a clear, confident explanation. What's the right next step?"
-        stars={3}
-        options={[
-          { id: 'A', text: 'Trust the explanation and move on — it sounds right', isCorrect: false, explanation: 'Trusting the AI\'s explanation of confusing code is exactly how subtle bugs survive. The AI is excellent at producing plausible explanations of code it doesn\'t actually understand.' },
-          { id: 'B', text: 'Verify the explanation by tracing through one specific input by hand', isCorrect: false, explanation: 'Hand-tracing one input is fine for short functions but doesn\'t scale to 300 lines, and you\'ll only check one path. D gives you many paths automatically.' },
-          { id: 'C', text: 'Ask Claude Code to explain it again in a fresh session and compare answers', isCorrect: false, explanation: 'Two confident explanations from two sessions might be confidently wrong in the same way (they\'re sampled from the same model). You\'re checking consistency, not correctness.' },
-          { id: 'D', text: 'Ask Claude Code to write tests that exercise its understanding', isCorrect: true, explanation: 'Tests are an operationalized version of the explanation. If the AI\'s understanding is correct, the tests will pass against the real code. If the understanding is wrong, the tests will fail — and the failure tells you exactly where the explanation diverged from reality. This is the cheapest, most rigorous way to verify a code explanation.' }
-        ]}
-      />
-    ),
-  },
-  {
     id: 36,
     section: 'Quiz',
-    title: 'Q7 — When "looks fine" means trouble',
+    title: level1QuizQuestions[3].title,
     content: (
       <QuizQuestion 
-        question="Claude Code finishes a task. You scan the diff. Your gut says something's off, but the tests pass and TypeScript is green. Most likely cause?"
-        stars={3}
-        options={[
-          { id: 'A', text: 'Your gut is wrong; the AI verified it works', isCorrect: false, explanation: 'Senior gut instinct about diffs is calibrated by years of finding bugs. It\'s almost never wrong about "something\'s off." It\'s frequently wrong about what\'s off, but the smell is real. Don\'t override it because the easy checks pass.' },
-          { id: 'B', text: 'The tests don\'t actually exercise the code paths you\'re worried about', isCorrect: true, explanation: 'Green tests prove only what they test. If the AI wrote the code AND the tests, the tests are biased toward the implementation and will pass even if the code is subtly wrong. Your gut is reacting to something specific in the diff — the absence of a check, a strange branch order, an unusual error handling pattern. Green tests don\'t address that specific concern; they address the average concern.' },
-          { id: 'C', text: 'TypeScript is missing type annotations somewhere', isCorrect: false, explanation: 'Missing type annotations are a TypeScript problem, and "TypeScript is green" already rules them out at the level you can check.' },
-          { id: 'D', text: 'The AI used a feature you don\'t recognize', isCorrect: false, explanation: 'If you don\'t recognize a feature, the right move is to look it up — but recognition gaps usually feel like "I don\'t know what this does," not "something feels off."' }
-        ]}
+        question={level1QuizQuestions[3].question}
+        stars={level1QuizQuestions[3].stars}
+        options={level1QuizQuestions[3].options}
       />
     ),
   },
   {
     id: 37,
-    section: 'Quiz',
-    title: 'Q8 — The 200-line prompt trap',
-    content: (
-      <QuizQuestion 
-        question="You're crafting a complex prompt. After 15 minutes of writing, you have ~200 lines of context, examples, edge cases, and constraints. Before sending, you should:"
-        stars={4}
-        options={[
-          { id: 'A', text: 'Send it — careful prompt engineering is the senior skill', isCorrect: false, explanation: 'Long prompts are a code smell, not a senior skill. The senior skill is recognizing that a long prompt today should become a short prompt + a rules file tomorrow. Permanent context belongs in permanent places.' },
-          { id: 'B', text: 'Cut it in half — you\'re pre-loading information the AI doesn\'t need', isCorrect: false, explanation: 'Cutting "in half" without thought just removes half the constraints, some of which might matter. The discipline is to relocate the persistent stuff, not delete it.' },
-          { id: 'C', text: 'Split it into two prompts: a planning prompt and an execution prompt', isCorrect: false, explanation: 'Splitting helps if the prompt is genuinely two distinct steps. But if the bulk is constraints rather than steps, splitting doesn\'t reduce the constraint load.' },
-          { id: 'D', text: 'Move the constraints into your CLAUDE.md and re-prompt with just the task', isCorrect: true, explanation: 'A 200-line prompt is a signal that you\'re carrying context manually that should live in the rules file. If the constraints apply to this task, they probably apply to every similar task — which means they belong in CLAUDE.md (or a skill, if they\'re procedural) where they\'ll automatically apply next time without you re-typing them. Your prompt should describe the task, not the entire codebase.' }
-        ]}
-      />
-    ),
-  },
-  {
-    id: 38,
     section: 'Closing',
     title: 'Plan for next week',
     resourceId: 'exercise-4',
@@ -1072,7 +1016,7 @@ This is critical for juniors. The AI can produce code that looks right, compiles
     ),
   },
   {
-    id: 39,
+    id: 38,
     section: 'Closing',
     title: 'Resources',
     content: (
@@ -1111,7 +1055,7 @@ This is critical for juniors. The AI can produce code that looks right, compiles
     ),
   },
   {
-    id: 40,
+    id: 39,
     section: 'Closing',
     title: 'Q&A',
     content: (
@@ -1120,15 +1064,22 @@ This is critical for juniors. The AI can produce code that looks right, compiles
           Questions?
         </h1>
         <div className="bg-gray-100 p-6 rounded-2xl text-center max-w-4xl">
-          <p className="text-xl text-gray-600 italic">
+          <p className="text-xl text-gray-600 italic mb-6">
             (Max 5 minutes. What we don't answer here goes to the team channel.)
           </p>
+          <button 
+            onClick={() => window.dispatchEvent(new CustomEvent('open-quiz'))}
+            className="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all active:scale-95 flex items-center space-x-3 mx-auto"
+          >
+            <LayoutGrid size={24} />
+            <span>Open Knowledge Review</span>
+          </button>
         </div>
       </div>
     ),
   },
   {
-    id: 41,
+    id: 40,
     section: 'Closing',
     title: 'Closing',
     content: (

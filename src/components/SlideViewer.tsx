@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { slideService } from '../services/slideService';
 import { resources } from '../data/resourcesData';
-import { ChevronLeft, ChevronRight, Maximize, Minimize, BookOpen, Info, UserCheck, X, FileText, Copy, Check, Zap, List, LayoutGrid } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Maximize, Minimize, BookOpen, Info, UserCheck, X, FileText, Copy, Check, Zap, List, LayoutGrid, HelpCircle } from 'lucide-react';
 import { cn } from '../lib/utils';
 import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { QuizModal } from './QuizModal';
+import { level1QuizQuestions } from '../data/quizData';
 
 const CodeBlock = ({ children, className }: { children: React.ReactNode, className?: string }) => {
   const [copied, setCopied] = useState(false);
@@ -79,6 +81,7 @@ export default function SlideViewer({ workshopId, onBack }: { workshopId: string
   const [activeResourceId, setActiveResourceId] = useState<string | null>(null);
   const [isResourcesMenuOpen, setIsResourcesMenuOpen] = useState(false);
   const [isIndexOpen, setIsIndexOpen] = useState(false);
+  const [isQuizModalOpen, setIsQuizModalOpen] = useState(false);
 
   const slides = slideService.getSlides(workshopId);
   const totalSlides = slideService.getTotalSlides(workshopId);
@@ -129,6 +132,12 @@ export default function SlideViewer({ workshopId, onBack }: { workshopId: string
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [goToNextSlide, goToPrevSlide]);
+
+  useEffect(() => {
+    const handleOpenQuiz = () => setIsQuizModalOpen(true);
+    window.addEventListener('open-quiz', handleOpenQuiz);
+    return () => window.removeEventListener('open-quiz', handleOpenQuiz);
+  }, []);
 
   if (!currentSlide) return null;
 
@@ -462,6 +471,13 @@ export default function SlideViewer({ workshopId, onBack }: { workshopId: string
           <ChevronRight size={20} />
         </button>
       </footer>
+
+      {/* Quiz Modal */}
+      <QuizModal 
+        isOpen={isQuizModalOpen}
+        onClose={() => setIsQuizModalOpen(false)}
+        questions={level1QuizQuestions}
+      />
     </div>
   );
 }
