@@ -72,7 +72,7 @@ const markdownComponents: Components = {
   td: ({ children }) => <td className="p-4 border-b border-gray-100 text-gray-600">{children}</td>,
 };
 
-export default function SlideViewer() {
+export default function SlideViewer({ workshopId, onBack }: { workshopId: string, onBack: () => void }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isFacilitatorMode, setIsFacilitatorMode] = useState(false);
@@ -80,12 +80,13 @@ export default function SlideViewer() {
   const [isResourcesMenuOpen, setIsResourcesMenuOpen] = useState(false);
   const [isIndexOpen, setIsIndexOpen] = useState(false);
 
-  const slides = slideService.getSlides();
-  const totalSlides = slideService.getTotalSlides();
+  const slides = slideService.getSlides(workshopId);
+  const totalSlides = slideService.getTotalSlides(workshopId);
 
   const currentSlide = slides[currentSlideIndex];
 
-  const activeResource = activeResourceId ? resources.find(r => r.id === activeResourceId) : null;
+  const workshopResources = resources.filter(r => r.workshopId === workshopId);
+  const activeResource = activeResourceId ? workshopResources.find(r => r.id === activeResourceId) : null;
 
   const goToNextSlide = useCallback(() => {
     setCurrentSlideIndex((prev) => Math.min(prev + 1, totalSlides - 1));
@@ -141,6 +142,14 @@ export default function SlideViewer() {
       {/* Header */}
       <header className="flex justify-between items-center p-4 bg-white border-b border-gray-100 z-10">
         <div className="flex items-center space-x-4">
+          <button
+            onClick={onBack}
+            className="p-2 text-gray-500 hover:bg-gray-100 rounded-full transition-colors flex items-center space-x-1"
+            title="Back to Workshop Selection"
+          >
+            <ChevronLeft size={20} />
+            <span className="hidden md:inline text-sm font-medium">Exit</span>
+          </button>
           <div className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider">
             {currentSlide.section}
           </div>
@@ -306,7 +315,7 @@ export default function SlideViewer() {
             <div className="flex-grow overflow-y-auto p-8 bg-white">
               <div className="space-y-12">
                 {['Handout', 'Exercise', 'Guide', 'Bonus', 'Reference'].map((category) => {
-                  const categoryResources = resources.filter(r => r.category === category);
+                  const categoryResources = workshopResources.filter(r => r.category === category);
                   if (categoryResources.length === 0) return null;
                   
                   return (

@@ -1,6 +1,6 @@
 import { Resource } from '../types';
 
-export const resources: Resource[] = [
+const level1Resources: Omit<Resource, 'workshopId'>[] = [
   {
     id: 'facilitator-guide',
     title: 'Facilitator Guide',
@@ -1360,4 +1360,18 @@ If the Project file says "Use Jest" but the Directory file says "Use Vitest for 
 The gain isn't from adding *more* rules; it's from putting *existing* rules in the right layer. This reduces "noise" for the AI and keeps it focused on what matters for the current file.
 `,
   },
+];
+
+const level2Resources: Omit<Resource, 'workshopId'>[] = [
+  {
+    id: 'l2-intro',
+    title: 'Level 2 Introduction',
+    category: 'Guide',
+    content: '# Level 2: Advanced Patterns\n\nWelcome to the advanced workshop.'
+  }
+];
+
+export const resources: Resource[] = [
+  ...level1Resources.map(r => ({ ...r, workshopId: 'level-1' } as Resource)),
+  ...level2Resources.map(r => ({ ...r, workshopId: 'level-2' } as Resource)),
 ];

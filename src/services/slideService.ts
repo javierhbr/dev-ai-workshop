@@ -2,13 +2,13 @@ import { slides } from '../data/slidesData';
 import { Slide } from '../types';
 
 export const slideService = {
-  getSlides: (): Slide[] => {
-    return slides;
+  getSlides: (workshopId: string): Slide[] => {
+    return slides.filter(s => s.workshopId === workshopId);
   },
-  getSlideById: (id: number): Slide | undefined => {
-    return slides.find(s => s.id === id);
+  getSlideById: (workshopId: string, id: number): Slide | undefined => {
+    return slides.find(s => s.workshopId === workshopId && s.id === id);
   },
-  getTotalSlides: (): number => {
-    return slides.length;
+  getTotalSlides: (workshopId: string): number => {
+    return slides.filter(s => s.workshopId === workshopId).length;
   }
 };
